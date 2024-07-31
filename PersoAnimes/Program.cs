@@ -1,7 +1,25 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using PersoAnimes.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+// Adiciona o contexto do banco de dados ao contêiner de serviços
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    // Configura o DbContext para usar o SQL Server com a string de conexão especificada
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+
+
+
+
+
 
 var app = builder.Build();
 
