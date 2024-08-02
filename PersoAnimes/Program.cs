@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using PersoAnimes.Data;
+using PersoAnimes.Services.PersoAnimes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 
-
+builder.Services.AddScoped<IPersoAnimesInterface, PersoAnimesService>();    
 
 
 
