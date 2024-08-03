@@ -8,5 +8,10 @@ namespace PersoAnimes.Controllers
         {
             return View();
         }
+
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
     }
 }
